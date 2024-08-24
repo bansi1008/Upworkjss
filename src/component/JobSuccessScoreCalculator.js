@@ -22,26 +22,19 @@ const JobSuccessScoreCalculator = () => {
 
   const calculateNewJSS = () => {
     const parsedCurrentJSS = parseFloat(currentJSS);
-    const parsedTotalCompletedJobs = parseInt(totalCompletedJobs, 10);
+    const parsedTotalCompletedJobs = parseInt(totalCompletedJobs);
+    const newJobs = jobs.filter(job => job.completedSuccessfully);
 
-    if (jobs.length === 0 || isNaN(parsedCurrentJSS) || isNaN(parsedTotalCompletedJobs)) {
-      return parsedCurrentJSS || 0;
-    }
+    if (newJobs.length === 0) return parsedCurrentJSS;
 
     let weightedRatingSum = 0.0;
     let totalCost = 0.0;
 
-    for (const job of jobs) {
-      if (job.completedSuccessfully) {
-        const jobRating = parseFloat(job.rating);
-        const jobCost = parseFloat(job.cost);
-        weightedRatingSum += jobCost * (jobRating / 5.0);
-        totalCost += jobCost;
-      }
-    }
-
-    if (totalCost === 0) {
-      return parsedCurrentJSS;
+    for (const job of newJobs) {
+      const jobCost = parseFloat(job.cost);
+      const jobRating = parseFloat(job.rating);
+      weightedRatingSum += jobCost * (jobRating / 5.0);
+      totalCost += jobCost;
     }
 
     const weightedAverageRating = weightedRatingSum / totalCost;

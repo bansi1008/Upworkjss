@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 import Navv from './component/Navv';
 import Test from './component/Test';
+import Form from './component/Form';
 import JobSuccessScoreCalculator from './component/JobSuccessScoreCalculator';
+import Car from './component/Car'
 
 
 
@@ -21,6 +23,8 @@ function App() {
             }, 900);
        
     }
+
+    
 
 
     
@@ -44,8 +48,11 @@ function App() {
     return (
         <div>
            
-           <JobSuccessScoreCalculator />
-            
+          
+
+         <Form/>
+         <Car/>
+
     
            </div>
       

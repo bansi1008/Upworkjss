@@ -29,15 +29,41 @@ const list=products.map(product=>
 
    function handle(){
     setCount(count+1);
-    
+     }
 
-   
+     const [count1, setcount1] = useState(0);
+    const[dislike, setdislike]=useState(0);
 
-  }
+    const a=()=>{
+        setcount1(count1+1);
+    }
+
+    const b= ()=>{
+      setdislike(dislike+1);
+    }
+
+    let[colour, setcolour]=useState("");
+
+    const r1=()=>{
+      setcolour(colour="danger")
+    }
+
+     const g1=()=>{
+      setcolour(colour="success")
+    }
+
+    const y1=()=>{
+      setcolour(colour="warning")
+    }
+
+    const b1=()=>{
+      setcolour(colour="primary")
+    }
 
 
 
   const textColorClass = `text-${props.myst === 'light' ? 'black' : 'light'}`;
+
   return (
     <>
    
@@ -59,8 +85,26 @@ const list=products.map(product=>
 
 
 <div>
+   <button onClick={a}>hit like={count1}</button>
+   <button onClick={b}>hit dislike={dislike }</button>
+</div>
 
+<div>
+
+<p className= {`text-${colour}`}>Hello bansi</p>
+</div>
+
+<div>
+
+<textarea className= {`text-${colour}`} name="text" id=""></textarea>
+
+</div>
+<div>
+  <button className="btn btn-danger me-md-2" type="button" onClick={r1}>red</button>
+   <button className="btn btn-success me-md-2" type="button" onClick={g1} >green</button>
+   <button className="btn btn-warning me-md-2" type="button"  onClick={y1} >Yellow</button>
+   <button className="btn btn-primary me-md-2" type="button"  onClick={b1}>blue</button>
 </div>
   </>
   )
-}
+} 
