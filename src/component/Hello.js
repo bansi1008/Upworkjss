@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-export default function Hello() {
-  return (
-    <div>
-      <p>Hello</p>
-    </div>
-  )
+function Hello() {
+    return (
+        <div>
+            <h1>Hello, World!</h1>
+        </div>
+    );
 }
+
+export default Hello;
+ 
