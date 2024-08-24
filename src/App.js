@@ -6,6 +6,7 @@ import Test from './component/Test';
 import Form from './component/Form';
 import JobSuccessScoreCalculator from './component/JobSuccessScoreCalculator';
 import Car from './component/Car'
+import Hello from './component/Hello';
 
 
 
@@ -50,8 +51,8 @@ function App() {
            
           
 
-         <Form/>
-         <Car/>
+        
+         <Hello/>
 
     
            </div>
